@@ -2,6 +2,7 @@
 .dashboard-container {
   display: flex;
   height: 100vh;
+  width: 100%;
   padding-top: 50px; /* Espacio para la barra superior */
 }
 
@@ -85,7 +86,7 @@
   width: 250px;
   background: linear-gradient(to bottom, #8B4513, #CD853F); /* Degradado marrón */
   color: #FFFFFF;
-  padding: 20px;
+  padding: 20px 0 20px 20px; 
   position: relative;
   transition: width 0.3s;
 }
@@ -193,6 +194,7 @@
   padding: 20px;
   background-color: #FFF8DC; /* Fondo de tono crema */
   transition: margin-left 0.3s;
+  margin-left: 0;
 }
 
 /* Botón de Cerrar Sesión */
@@ -212,4 +214,10 @@
   background-color: #e63946;
   transform: scale(1.05);
   box-shadow: 0 6px 12px rgba(230, 57, 70, 0.6);
+}
+
+
+ body {
+ 
+  overflow-y: hidden; /* Evita el scroll horizontal */
 }
