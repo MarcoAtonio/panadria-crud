@@ -1,0 +1,259 @@
+/* Fondo general de la página */
+.contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.8);
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Efecto de difuminado en la imagen de fondo */
+.contenedor::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 20px;
+  background: url('https://images.vexels.com/media/users/3/171115/raw/04d452cfdf59216bedc2281a6930b112-tienda-de-panaderia-ilustracion-plana.jpg') center/cover no-repeat;
+  backdrop-filter: blur(5px);
+  z-index: 1;
+  border-radius: 10px;
+}
+
+/* Caja del formulario de inicio de sesión */
+.caja-inicio-sesion {
+  display: flex;
+  width: 800px;
+  height: 550px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: white;
+  position: relative;
+  z-index: 2;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Contenedor circular para el logo */
+.logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo img {
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+}
+
+/* Título del formulario */
+.titulo-formulario {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2em;
+  color: #D2691E;
+  margin-bottom: 20px;
+}
+
+/* Estilos para los paneles izquierdo y derecho */
+.panel-izquierdo, .panel-derecho {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel-izquierdo {
+  flex: 1;
+  background: linear-gradient(to bottom, #F7CBA9, #F4A261);
+  color: white;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.panel-derecho {
+  flex: 1;
+  background: white;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Estilos de los encabezados */
+h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5em;
+  margin: 0;
+  color: #D2691E; /* Color cálido y amigable */
+}
+
+h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5em;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Texto descriptivo */
+p {
+  font-size: 1em;
+  color: #fff;
+  max-width: 300px;
+  line-height: 1.5;
+  margin: 10px 0 20px;
+  text-align: center;
+}
+
+/* Estilos de los inputs */
+.grupo-formulario {
+  position: relative;
+  width: 100%;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.grupo-formulario input {
+  width: 100%;
+  max-width: 350px; /* Ancho máximo de cada campo de texto */
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  font-size: 1em;
+  outline: none;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Cambia el estilo al hacer clic en el input */
+.grupo-formulario input:focus {
+  border-color: #FF914D;
+  box-shadow: 0px 4px 12px rgba(255, 145, 77, 0.4);
+}
+
+/* Estilos de los placeholders */
+.grupo-formulario input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* Estilos para el botón de visibilidad en el campo de contraseña */
+.grupo-formulario .toggle-visibility {
+  position: absolute;
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5em;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.grupo-formulario .toggle-visibility:focus {
+  outline: none;
+}
+
+/* Icono de material icons */
+.material-icons {
+  font-size: 1.2em;
+}
+
+/* Estilos de los botones */
+.acciones {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.acciones button {
+  flex: 1;
+  padding: 10px;
+  width: 150px;
+  border: none;
+  border-radius: 25px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9em;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón de Registro con degradado */
+.acciones button[type="submit"] {
+  background: linear-gradient(45deg, #FF914D, #FF6B3C);
+  color: white;
+}
+
+.acciones button[type="button"] {
+  background: #ddd;
+  color: black;
+}
+
+.acciones button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+}
+
+.acciones button[type="submit"]:hover {
+  background: linear-gradient(45deg, #FF6B3C, #FF914D);
+}
+
+.acciones button[type="button"]:hover {
+  background: #ccc;
+}
+
+/* Estilos para las alertas flotantes */
+.alerta-flotante {
+  position: absolute;
+  top: -35px;
+  left: 10px;
+  background-color: #ff4c4c;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  white-space: nowrap;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  animation: aparecer 0.3s ease;
+  z-index: 10;
+}
+
+.alerta-flotante::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 10px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #ff4c4c transparent transparent transparent;
+}
+
+/* Animación para que la alerta aparezca suavemente */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

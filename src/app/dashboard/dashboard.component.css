@@ -1,0 +1,210 @@
+/* Estructura del contenedor principal */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  padding-top: 50px; /* Espacio para la barra superior */
+}
+
+/* Barra superior */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0px;
+  background: linear-gradient(45deg, #D2691E, #FFA07A); /* Degradado cálido */
+  color: #FFFFFF;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  height: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo y Nombre de la Empresa en la Barra Superior */
+.topbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.topbar-logo {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.company-name {
+  font-size: 1.2em;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+/* Barra de búsqueda */
+.search-input {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 15px;
+  background-color: #A0522D; /* Marrón cálido */
+  color: #FFFFFF;
+  min-width: 150px;
+}
+
+.search-input::placeholder {
+  color: #D2B48C; /* Tono crema */
+}
+
+/* Iconos de usuario en la barra superior */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon {
+  font-size: 1.2em;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: #FF8C00; /* Naranja oscuro */
+}
+
+/* Avatar de usuario */
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #FFFFFF;
+}
+
+/* Estilos para la barra lateral */
+.sidebar {
+  width: 250px;
+  background: linear-gradient(to bottom, #8B4513, #CD853F); /* Degradado marrón */
+  color: #FFFFFF;
+  padding: 20px;
+  position: relative;
+  transition: width 0.3s;
+}
+
+.sidebar.hidden {
+  width: 70px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+/* Botón de ocultar menú */
+.toggle-menu {
+  font-size: 1.5em;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.toggle-menu:hover {
+  color: #FF8C00;
+}
+
+/* Contenedor del logo circular */
+.logo-container {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.logo-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Título del menú con línea divisoria */
+.sidebar-title {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  text-align: center;
+  color: #FFA07A;
+  font-family: 'Dancing Script', cursive;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #ecf0f1;
+  margin: 0 0 20px 0;
+}
+
+/* Menú de navegación */
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu ul li {
+  margin: 15px 0;
+}
+
+.menu ul li a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.menu ul li a:hover {
+  background-color: #CD853F;
+  color: #FF8C00;
+}
+
+.icon {
+  font-size: 1.2em;
+  margin-right: 10px;
+}
+
+.menu-text {
+  transition: opacity 0.3s;
+}
+
+/* Contenido principal */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #FFF8DC; /* Fondo de tono crema */
+  transition: margin-left 0.3s;
+}
+
+/* Botón de Cerrar Sesión */
+.logout-btn {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(255, 107, 107, 0.4);
+}
+
+.logout-btn:hover {
+  background-color: #e63946;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(230, 57, 70, 0.6);
+}

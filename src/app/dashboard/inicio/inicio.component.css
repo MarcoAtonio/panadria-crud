@@ -1,0 +1,92 @@
+/* Fondo para el componente de inicio */
+.inicio-contenedor {
+    background: url('https://static.vecteezy.com/system/resources/previews/008/329/303/non_2x/seamless-pattern-with-dessert-pastry-bakery-elements-doodle-background-vector.jpg') center / cover no-repeat;
+    padding: 20px;
+    border-radius: 10px;
+    color: #3B2F2F;
+    min-height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+    background-attachment: fixed; /* El fondo queda fijo al hacer scroll */
+}
+
+/* Contenedor principal para métricas */
+.dashboard-overview {
+    padding: 20px;
+    color: #3B2F2F;
+}
+
+/* Encabezado del dashboard */
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dashboard-header h1 {
+    font-size: 1.8em;
+    color: #D2691E;
+}
+
+.dashboard-header p {
+    font-size: 0.9em;
+    color: #A0522D;
+}
+
+/* Contenedor de tarjetas de métricas */
+.metrics-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Tarjetas de métricas */
+.metric-card {
+    background: linear-gradient(135deg, #FFF5E1, #FFE4C4); /* Fondo cálido */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: scale(1.05); /* Efecto de escala al pasar el cursor */
+}
+
+/* Encabezado de cada tarjeta de métrica */
+.metric-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.metric-header h2 {
+    font-size: 1.2em;
+    color: #3B2F2F;
+}
+
+.metric-header .icon {
+    font-size: 1.5em;
+    color: #FF914D;
+}
+
+/* Información dentro de cada tarjeta */
+.metric-info p {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #3B2F2F;
+}
+
+.metric-info .positive-change {
+    color: #28A745;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.metric-info .negative-change {
+    color: #DC3545;
+    font-size: 0.9em;
+    margin-top: 5px;
+}

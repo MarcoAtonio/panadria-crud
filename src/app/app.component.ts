@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'panaderia-crud';
+  titulo = 'panaderia-crud'; // Cambié "title" a "titulo" en español
 }
