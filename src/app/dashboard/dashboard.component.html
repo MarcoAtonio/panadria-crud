@@ -1,45 +1,58 @@
-<div class="topbar">
-  <!-- Logo y Nombre de la Empresa -->
-  <div class="topbar-left">
-    <img src="https://villadetezontepec.com/wp-content/uploads/2021/07/Panaderia-la-espiga-de-villa-de-tezontepec.png" alt="Logo" class="topbar-logo" />
-    <span class="company-name">Panadería Suavicremas</span>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
-  <!-- Barra de búsqueda, iconos de usuario y botón de Cerrar Sesión -->
-  <div class="topbar-right">
-    <input type="text" placeholder="Buscar..." class="search-input" />
-    <span class="icon">👤</span>
-    <span class="icon">🔔</span>
-    <span class="icon">⚙️</span>
-    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Avatar" class="avatar" />
-    <button class="logout-btn" (click)="cerrarSesion()">Cerrar Sesión</button>
-  </div>
-</div>
-
-<div class="dashboard-container">
-  <!-- Barra lateral -->
-  <aside class="sidebar" [class.hidden]="menuOculto">
-    <div class="toggle-menu" (click)="toggleMenu()">☰</div>
-    <div class="logo-container" *ngIf="!menuOculto">
-      <img src="https://villadetezontepec.com/wp-content/uploads/2021/07/Panaderia-la-espiga-de-villa-de-tezontepec.png" alt="Logo de la Panadería" />
+</head>
+<body>
+  <div class="topbar">
+    <!-- Logo y Nombre de la Empresa -->
+    <div class="topbar-left">
+      <img src="https://villadetezontepec.com/wp-content/uploads/2021/07/Panaderia-la-espiga-de-villa-de-tezontepec.png" alt="Logo" class="topbar-logo" />
+      <span class="company-name">Panadería Suavicremas</span>
     </div>
-    <h2 class="sidebar-title" *ngIf="!menuOculto">Menú</h2>
-    <hr *ngIf="!menuOculto" class="divider">
-
-    <nav class="menu">
-      <ul>
-        <li><a routerLink="/dashboard/inicio"><span class="icon">🏠</span> <span class="menu-text" *ngIf="!menuOculto">Inicio</span></a></li>
-        <li><a routerLink="/dashboard/productos"><span class="icon">📦</span> <span class="menu-text" *ngIf="!menuOculto">Productos</span></a></li>
-        <li><a routerLink="/dashboard/materia-prima"><span class="icon">🌾</span> <span class="menu-text" *ngIf="!menuOculto">Materia Prima</span></a></li>
-        <li><a routerLink="/dashboard/compras"><span class="icon">🛒</span> <span class="menu-text" *ngIf="!menuOculto">Compras</span></a></li>
-        <li><a routerLink="/dashboard/ventas"><span class="icon">💸</span> <span class="menu-text" *ngIf="!menuOculto">Ventas</span></a></li>
-        <li><a routerLink="/dashboard/pedidos-especiales"><span class="icon">📑</span> <span class="menu-text" *ngIf="!menuOculto">Pedidos Especiales</span></a></li>
-      </ul>
-    </nav>
-  </aside>
-
-  <!-- Contenido principal -->
-  <main class="main-content">
-    <router-outlet></router-outlet>
-  </main>
-</div>
+  
+    <!-- Barra de búsqueda, iconos de usuario y botón de Cerrar Sesión -->
+    <div class="topbar-right">
+      <input type="text" placeholder="Buscar..." class="search-input" />
+      <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Avatar" class="avatar" />
+      <button class="logout-btn" (click)="cerrarSesion()">Cerrar Sesión</button>
+    </div>
+  </div>
+  
+  <div class="dashboard-container">
+    <!-- Barra lateral -->
+    
+    <aside class="sidebar" [class.hidden]="menuOculto">
+      <div class="toggle-menu" (click)="toggleMenu()">☰</div>
+      <div class="logo-container" *ngIf="!menuOculto">
+        <img src="https://villadetezontepec.com/wp-content/uploads/2021/07/Panaderia-la-espiga-de-villa-de-tezontepec.png" alt="Logo de la Panadería" />
+      </div>
+      <h2 class="sidebar-title" *ngIf="!menuOculto">Menú</h2>
+      <hr *ngIf="!menuOculto" class="divider">
+  
+      <nav class="menu">
+        <ul>
+         
+          <li><a routerLink="/dashboard/inicio"><span class="icon"><span class="material-icons-outlined">home</span></span><span class="menu-text" *ngIf="!menuOculto">Inicio</span></a></li>
+          <li><a routerLink="/dashboard/productos" class="menu-item"><span class="icon"><span class="material-icons-outlined">inventory_2</span></span><span class="menu-text" *ngIf="!menuOculto">Productos</span></a></li>
+          <li><a routerLink="/dashboard/materia-prima" class="menu-item"><span class="icon"><span class="material-icons-outlined">local_shipping</span></span><span class="menu-text" *ngIf="!menuOculto">Materia prima</span></a></li>
+          <li> <a routerLink="/dashboard/compras"  class="menu-item"><span class="icon"> <span class="material-icons-outlined">shopping_cart</span></span> <span class="menu-text" *ngIf="!menuOculto">Compras</span>  </a>   </li>
+          <li><a routerLink="/dashboard/ventas" class="menu-item"><span class="icon"> <span class="material-icons-outlined">point_of_sale</span></span><span class="menu-text" *ngIf="!menuOculto">Ventas</span></a></li>
+          <li><a routerLink="/dashboard/pedidos-especiales" class="menu-item"><span class="icon"> <span class="material-icons-outlined">edit_note</span></span>  <span class="menu-text" *ngIf="!menuOculto">Pedidos especiales</span></a></li>
+         
+        </ul>
+      </nav>
+    </aside>
+  
+    <!-- Contenido principal -->
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+  
+</body>
+</html>

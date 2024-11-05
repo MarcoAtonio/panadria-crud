@@ -99,12 +99,16 @@
 /* Botón de ocultar menú */
 .toggle-menu {
   font-size: 1.5em;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  margin-bottom: 20px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 10px;
+    background-color: transparent; 
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
 }
 
 .toggle-menu:hover {
@@ -176,6 +180,7 @@
 .icon {
   font-size: 1.2em;
   margin-right: 10px;
+  display: flex;
 }
 
 .menu-text {
