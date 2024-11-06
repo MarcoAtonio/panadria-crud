@@ -1,33 +1,55 @@
 <div class="productos-container">
-    <button class="agregar-btn" (click)="abrirModal()">Agregar Producto</button>
-  
-    <div class="productos-grid">
-      <div class="producto-card" *ngFor="let producto of productos">
-        <img [src]="producto.imagen_url" alt="{{ producto.nombre }}" />
-        <h3>{{ producto.nombre }}</h3>
-        <p>{{ producto.descripcion }}</p>
-        <p><strong>MXN{{ producto.precio | number: '1.2-2' }}</strong></p>
-        <p>Disponible: {{ producto.cantidad }}</p>
-        <div class="acciones">
-          <button class="accion-btn editar-btn" (click)="editarProducto(producto.id)">Editar</button>
-          <button class="accion-btn eliminar-btn" (click)="eliminarProducto(producto.id)">Eliminar</button>
-        </div>
+  <button class="agregar-btn" (click)="abrirModal()">Agregar Producto</button>
+
+  <div class="productos-grid">
+    <div class="producto-card" *ngFor="let producto of productos">
+      <img [src]="producto.imagen_url" alt="{{ producto.nombre }}" />
+      <h3>{{ producto.nombre }}</h3>
+      <p>{{ producto.descripcion }}</p>
+      <p><strong>MXN{{ producto.precio | number: '1.2-2' }}</strong></p>
+      <p>Disponible: {{ producto.cantidad }}</p>
+      <div class="acciones">
+        <button class="accion-btn editar-btn" (click)="editarProducto(producto.id)">Editar</button>
+        <button class="accion-btn eliminar-btn" (click)="eliminarProducto(producto.id)">Eliminar</button>
       </div>
     </div>
-  
-    <!-- Modal de agregar/editar producto -->
-    <div class="modal" *ngIf="mostrarModal">
-      <div class="modal-content">
-        <h2>{{ esEdicion ? 'Editar Producto' : 'Agregar Producto' }}</h2>
-        <input type="text" placeholder="Nombre" [(ngModel)]="nuevoProducto.nombre" />
-        <input type="text" placeholder="Descripción" [(ngModel)]="nuevoProducto.descripcion" />
-        <input type="number" placeholder="Precio" [(ngModel)]="nuevoProducto.precio" />
-        <input type="number" placeholder="Cantidad" [(ngModel)]="nuevoProducto.cantidad" />
-        <input type="file" (change)="cargarImagen($event)" />
-        <button (click)="esEdicion ? guardarCambios() : agregarProducto()">
+  </div>
+
+  <!-- Modal de agregar/editar producto -->
+  <div class="modal" *ngIf="mostrarModal">
+    <div class="modal-content">
+      <h2>{{ esEdicion ? 'Editar Producto' : 'Agregar Producto' }}</h2>
+      
+      <div class="modal-field">
+        <label for="nombre">Nombre del Producto</label>
+        <input type="text" id="nombre" placeholder="Nombre" [(ngModel)]="nuevoProducto.nombre" />
+      </div>
+      
+      <div class="modal-field">
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" placeholder="Descripción" [(ngModel)]="nuevoProducto.descripcion"></textarea>
+      </div>
+      
+      <div class="modal-field">
+        <label for="precio">Precio (MXN)</label>
+        <input type="number" id="precio" placeholder="Precio" [(ngModel)]="nuevoProducto.precio" />
+      </div>
+      
+      <div class="modal-field">
+        <label for="cantidad">Cantidad Disponible</label>
+        <input type="number" id="cantidad" placeholder="Cantidad" [(ngModel)]="nuevoProducto.cantidad" />
+      </div>
+      
+      <div class="modal-field">
+        <label for="imagen">Imagen del Producto</label>
+        <input type="file" id="imagen" (change)="cargarImagen($event)" />
+      </div>
+      
+      <div class="modal-actions">
+        <button class="guardar-btn" (click)="esEdicion ? guardarCambios() : agregarProducto()">
           {{ esEdicion ? 'Guardar Cambios' : 'Agregar Producto' }}
         </button>
-        <button (click)="cerrarModal()">Cancelar</button>
+        <button class="cancelar-btn" (click)="cerrarModal()">Cancelar</button>
       </div>
     </div>
   </div>

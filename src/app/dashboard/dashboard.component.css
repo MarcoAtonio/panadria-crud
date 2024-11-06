@@ -22,6 +22,8 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+
+
 /* Logo y Nombre de la Empresa en la Barra Superior */
 .topbar-left {
   display: flex;
@@ -64,13 +66,15 @@
 
 .icon {
   font-size: 1.2em;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
 }
 
 .icon:hover {
   color: #FF8C00; /* Naranja oscuro */
 }
+
+
 
 /* Avatar de usuario */
 .avatar {
@@ -84,11 +88,13 @@
 /* Estilos para la barra lateral */
 .sidebar {
   width: 250px;
-  background: linear-gradient(to bottom, #8B4513, #CD853F); /* Degradado marrón */
-  color: #FFFFFF;
-  padding: 20px 0 20px 20px; 
+  background: linear-gradient(to bottom, #d18b47, #f3bb8d);/* Degradado marrón */
+  color: #ffffff;
+  padding: 20px 0 20px 5px; 
   position: relative;
   transition: width 0.3s;
+  border-right: 1px solid #e0e0e0;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, .1);
 }
 
 .sidebar.hidden {
@@ -142,7 +148,7 @@
   font-size: 1.5em;
   margin-bottom: 1em;
   text-align: center;
-  color: #FFA07A;
+  color: #6e340b;
   font-family: 'Dancing Script', cursive;
 }
 
@@ -168,8 +174,8 @@
   font-size: 1.1em;
   display: flex;
   align-items: center;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 12px 15px;
+  border-radius: 10px;
   transition: background 0.3s, color 0.3s;
 }
 
@@ -221,3 +227,6 @@
  
   overflow-y: hidden; /* Evita el scroll horizontal */
 }
+
+
+
