@@ -14,6 +14,7 @@ import { ComprasComponent } from './dashboard/compras/compras.component';
 import { VentasComponent } from './dashboard/ventas/ventas.component';
 import { PedidosEspecialesComponent } from './dashboard/pedidos-especiales/pedidos-especiales.component';
 import { UsuariosComponent } from './dashboard/usuarios/usuarios.component';
+import { ModalUsuarioComponent } from './dashboard/modal-usuario/modal-usuario.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { UsuariosComponent } from './dashboard/usuarios/usuarios.component';
     VentasComponent,
     PedidosEspecialesComponent,
     UsuariosComponent,
+    ModalUsuarioComponent,
     
   ],
   imports: [

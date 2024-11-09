@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Usuario</title>
+    <link rel="stylesheet" href="modal-usuario.component.css">
+</head>
+
+<body>
+    <div class="modal-overlay">
+        <div class="modal-content">
+
+            <section class="form-modal">
+                <h4>Registrar Usuario</h4>
+                <label class="labels" for="Nombre">Nombre</label>
+                <input class="controls" type="text" name="nombres" id="nombre" placeholder="Ingrese su nombre">
+                <label class="labels" for="Correo">Correo Electronico</label>
+                <input class="controls" type="text" name="correo" id="correo" placeholder="correo">
+                <label class="labels" for="Contraseña">Contraseña</label>
+                <input class="controls" type="text" name="contraseña" id="contraseña"
+                    placeholder="Ingrese su contraseña">
+                <label class="labels" for="Rol">Rol</label>
+                <input class="controls" type="text" name="rol" id="rol" placeholder="Ingrese el rol">
+                <div class="botons-container">
+
+                    <button class="botons">Crear Usuario</button>
+                    <button class="botons" (click)="cerrar()">Cancelar</button>
+
+                </div>
+
+            </section>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -19,32 +19,32 @@
   <div class="modal" *ngIf="mostrarModal">
     <div class="modal-content">
       <h2>{{ esEdicion ? 'Editar Producto' : 'Agregar Producto' }}</h2>
-      
+
       <div class="modal-field">
         <label for="nombre">Nombre del Producto</label>
         <input type="text" id="nombre" placeholder="Nombre" [(ngModel)]="nuevoProducto.nombre" />
       </div>
-      
+
       <div class="modal-field">
         <label for="descripcion">Descripción</label>
         <textarea id="descripcion" placeholder="Descripción" [(ngModel)]="nuevoProducto.descripcion"></textarea>
       </div>
-      
+
       <div class="modal-field">
         <label for="precio">Precio (MXN)</label>
         <input type="number" id="precio" placeholder="Precio" [(ngModel)]="nuevoProducto.precio" />
       </div>
-      
+
       <div class="modal-field">
         <label for="cantidad">Cantidad Disponible</label>
         <input type="number" id="cantidad" placeholder="Cantidad" [(ngModel)]="nuevoProducto.cantidad" />
       </div>
-      
+
       <div class="modal-field">
         <label for="imagen">Imagen del Producto</label>
         <input type="file" id="imagen" (change)="cargarImagen($event)" />
       </div>
-      
+
       <div class="modal-actions">
         <button class="guardar-btn" (click)="esEdicion ? guardarCambios() : agregarProducto()">
           {{ esEdicion ? 'Guardar Cambios' : 'Agregar Producto' }}
@@ -53,4 +53,3 @@
       </div>
     </div>
   </div>
-  

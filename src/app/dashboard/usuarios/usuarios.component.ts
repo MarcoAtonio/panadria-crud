@@ -18,8 +18,13 @@ interface Usuario {
   styleUrls: ['./usuarios.component.css']
 })
 export class UsuariosComponent {
+  mostrarModalUsuario: boolean = false;
+  mostrarModal() {
+    this.mostrarModalUsuario = true;
+  }
 
- 
-
+  cerrarModal() {
+    this.mostrarModalUsuario = false;
+  }
  
 }
