@@ -8,6 +8,7 @@ import { MateriaPrimaComponent } from './dashboard/materia-prima/materia-prima.c
 import { ComprasComponent } from './dashboard/compras/compras.component';
 import { VentasComponent } from './dashboard/ventas/ventas.component';
 import { PedidosEspecialesComponent } from './dashboard/pedidos-especiales/pedidos-especiales.component';
+import { UsuariosComponent } from './dashboard/usuarios/usuarios.component';
 
 const routes: Routes = [
   { path: '', component: InicioSesionComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'materia-prima', component: MateriaPrimaComponent },
       { path: 'compras', component: ComprasComponent },
       { path: 'ventas', component: VentasComponent },
+      { path: 'usuarios', component: UsuariosComponent },
       { path: 'pedidos-especiales', component: PedidosEspecialesComponent },
       { path: '', redirectTo: 'inicio', pathMatch: 'full' }
     ]

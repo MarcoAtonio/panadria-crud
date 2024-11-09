@@ -13,6 +13,8 @@ import { MateriaPrimaComponent } from './dashboard/materia-prima/materia-prima.c
 import { ComprasComponent } from './dashboard/compras/compras.component';
 import { VentasComponent } from './dashboard/ventas/ventas.component';
 import { PedidosEspecialesComponent } from './dashboard/pedidos-especiales/pedidos-especiales.component';
+import { UsuariosComponent } from './dashboard/usuarios/usuarios.component';
+
 
 @NgModule({
   declarations: [
@@ -24,13 +26,15 @@ import { PedidosEspecialesComponent } from './dashboard/pedidos-especiales/pedid
     MateriaPrimaComponent,
     ComprasComponent,
     VentasComponent,
-    PedidosEspecialesComponent
+    PedidosEspecialesComponent,
+    UsuariosComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule  // Asegúrate de que FormsModule esté aquí
+    FormsModule  
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,46 @@
+
+header{
+
+height: 100px;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100px;
+}
+
+div{
+display: flex;
+justify-content: space-around;
+gap: 500px;
+align-items: center;
+}
+
+
+h2{
+padding-right: 20px;
+
+}
+
+button {
+    border: 2px solid #d85e2e;
+    background-color: #d85e2e;
+    border-radius: 0.9em;
+    cursor: pointer;
+    padding: 0.8em 1.2em 0.8em 1em;
+    transition: all ease-in-out 0.2s;
+    font-size: 16px;
+  }
+  
+  button span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  button:hover {
+    background-color: #e95c24;
+  }
+  
+
