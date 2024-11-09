@@ -31,7 +31,9 @@
         </div>
     </header>
 
-    <app-modal-usuario *ngIf="mostrarModalUsuario" (cerrarModalEvent)="cerrarModal()"></app-modal-usuario>
+    <app-modal-usuario *ngIf="mostrarModalUsuario" (cerrarModalEvent)="cerrarModal()" [nuevoUsuario]="nuevoUsuario"
+        (crearUsuario)="agregarUsuario()">
+    </app-modal-usuario>
 
 
 

@@ -1,4 +1,4 @@
-import { Component,EventEmitter, Output  } from '@angular/core';
+import { Component,EventEmitter, Output ,Input } from '@angular/core';
 
 @Component({
   selector: 'app-modal-usuario',
@@ -6,9 +6,17 @@ import { Component,EventEmitter, Output  } from '@angular/core';
   styleUrls: ['./modal-usuario.component.css']
 })
 export class ModalUsuarioComponent {
+
+  @Input() nuevoUsuario: any; 
   @Output() cerrarModalEvent = new EventEmitter<void>();
 
   cerrar() {
     this.cerrarModalEvent.emit();
   }
+
+  @Output() crearUsuario = new EventEmitter<void>();
+  onCrearUsuario() {
+    this.crearUsuario.emit();  
+  }
+  
 }
