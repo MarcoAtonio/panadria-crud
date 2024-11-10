@@ -36,6 +36,14 @@
     </app-modal-usuario>
 
 
+    <app-tabla-usuarios [usuarios]="usuarios" (usuarioSeleccionado)="cargarUsuarioParaEditar($event)"
+        (usuarioEliminado)="eliminarUsuario($event)">
+    </app-tabla-usuarios>
+
+    <!-- Modal de edición -->
+    <app-modal-edit-usuario *ngIf="mostrarModalUsuario" [nuevoUsuario]="nuevoUsuario" (cerrarModalEvent)="cerrarModal()"
+        (guardarCambiosEvent)="editarUsuario($event)">
+    </app-modal-edit-usuario>
 
 
 </body>

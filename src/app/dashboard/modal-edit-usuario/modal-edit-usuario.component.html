@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Usuario</title>
+    <link rel="stylesheet" href="modal-edit-usuario.component.css">
+</head>
+
+<body>
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <section class="form-modal">
+                <h4>Editar Usuario</h4>
+                <label class="labels" for="nombre">Nombre</label>
+                <input class="controls" type="text" id="nombre" placeholder="Ingrese su nombre"
+                    [(ngModel)]="nuevoUsuario.nombre">
+
+                <label class="labels" for="correo">Correo Electronico</label>
+                <input class="controls" type="email" id="correo" placeholder="correo" [(ngModel)]="nuevoUsuario.correo">
+
+                <label class="labels" for="contraseña">Contraseña</label>
+                <input class="controls" type="password" id="contraseña" placeholder="Ingrese su contraseña"
+                    [(ngModel)]="nuevoUsuario.contrasena">
+
+                <label class="labels" for="rol">Rol</label>
+                <input class="controls" type="text" id="rol" placeholder="Ingrese el rol"
+                    [(ngModel)]="nuevoUsuario.rol">
+
+                <div class="botons-container">
+                    <button class="botons" (click)="onGuardarCambios()">Guardar Cambios</button>
+                    <button class="botons" (click)="cerrar()">Cancelar</button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
