@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { AuthService } from '../services/auth.service'; 
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -13,7 +14,10 @@ export class InicioSesionComponent {
   contrasena: string = '';
   mostrarContrasena: boolean = false;
 
-  constructor(private enrutador: Router) {}
+  constructor(
+    private enrutador: Router,
+    private authService: AuthService 
+  ) {}
 
   // Validación para el campo de nombre (solo letras)
   get nombreInvalido(): string | null {
@@ -60,15 +64,28 @@ export class InicioSesionComponent {
   // Redirigir al usuario al dashboard después de iniciar sesión y mostrar SweetAlert
   iniciarSesion() {
     if (this.correo && this.contrasena && !this.correoInvalido && !this.contrasenaInvalida) {
-      Swal.fire({
-        icon: 'success',
-        title: 'Inicio de sesión exitoso',
-        text: 'Bienvenido a la panadería "Suavicremas"',
-        
-        showConfirmButton: false,
-        timer: 1500 
-      }).then(() => {
-        this.enrutador.navigate(['/dashboard']);
+      this.authService.login(this.correo, this.contrasena).subscribe({
+        next: (response) => {
+          // Guardar el token en el localStorage
+          this.authService.storeToken(response.token);
+          Swal.fire({
+            icon: 'success',
+            title: 'Inicio de sesión exitoso',
+            text: 'Bienvenido a la panadería "Suavicremas"',
+            showConfirmButton: false,
+            timer: 1500
+          }).then(() => {
+            this.enrutador.navigate(['/dashboard']);
+          });
+        },
+        error: (err) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Correo o contraseña incorrectos',
+            confirmButtonText: 'Intentar de nuevo'
+          });
+        }
       });
     } else {
       Swal.fire({
@@ -79,5 +96,4 @@ export class InicioSesionComponent {
       });
     }
   }
-
 }

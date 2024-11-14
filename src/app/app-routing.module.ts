@@ -9,9 +9,6 @@ import { ComprasComponent } from './dashboard/compras/compras.component';
 import { VentasComponent } from './dashboard/ventas/ventas.component';
 import { PedidosEspecialesComponent } from './dashboard/pedidos-especiales/pedidos-especiales.component';
 import { UsuariosComponent } from './dashboard/usuarios/usuarios.component';
-import { ModalUsuarioComponent } from './dashboard/modal-usuario/modal-usuario.component';
-import { TablaUsuariosComponent } from './dashboard/tabla-usuarios/tabla-usuarios.component';
-import { ModalEditUsuarioComponent } from './dashboard/modal-edit-usuario/modal-edit-usuario.component';
 
 const routes: Routes = [
   { path: '', component: InicioSesionComponent },
@@ -26,9 +23,6 @@ const routes: Routes = [
       { path: 'ventas', component: VentasComponent },
       { path: 'usuarios', component: UsuariosComponent },
       { path: 'pedidos-especiales', component: PedidosEspecialesComponent },
-      { path: 'modalUsuario', component: ModalUsuarioComponent },
-      {path: 'tabla', component: TablaUsuariosComponent},
-      {path: 'edit', component: ModalEditUsuarioComponent},
       { path: '', redirectTo: 'inicio', pathMatch: 'full' }
     ]
   },

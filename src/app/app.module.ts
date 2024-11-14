@@ -13,9 +13,7 @@ import { ComprasComponent } from './dashboard/compras/compras.component';
 import { VentasComponent } from './dashboard/ventas/ventas.component';
 import { PedidosEspecialesComponent } from './dashboard/pedidos-especiales/pedidos-especiales.component';
 import { UsuariosComponent } from './dashboard/usuarios/usuarios.component';
-import { ModalUsuarioComponent } from './dashboard/modal-usuario/modal-usuario.component';
-import { TablaUsuariosComponent } from './dashboard/tabla-usuarios/tabla-usuarios.component';
-import { ModalEditUsuarioComponent } from './dashboard/modal-edit-usuario/modal-edit-usuario.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -29,17 +27,14 @@ import { ModalEditUsuarioComponent } from './dashboard/modal-edit-usuario/modal-
     ComprasComponent,
     VentasComponent,
     PedidosEspecialesComponent,
-    UsuariosComponent,
-    ModalUsuarioComponent,
-    TablaUsuariosComponent,
-    ModalEditUsuarioComponent,
-    
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule  
+    FormsModule,
+    HttpClientModule   
   ],
   providers: [],
   bootstrap: [AppComponent]

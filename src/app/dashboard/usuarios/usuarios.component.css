@@ -1,46 +1,78 @@
-
-header{
-
-height: 100px;
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100px;
+.usuarios-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
-div{
-display: flex;
-justify-content: space-around;
-gap: 500px;
-align-items: center;
+.agregar-btn {
+  background-color: #28A745;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
-
-h2{
-padding-right: 20px;
-
+.usuarios-list {
+  width: 100%;
+  max-width: 800px;
 }
 
-button {
-    border: 2px solid #d85e2e;
-    background-color: #d85e2e;
-    border-radius: 0.9em;
-    cursor: pointer;
-    padding: 0.8em 1.2em 0.8em 1em;
-    transition: all ease-in-out 0.2s;
-    font-size: 16px;
-  }
-  
-  button span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-weight: 600;
-  }
-  
-  button:hover {
-    background-color: #e95c24;
-  }
-  
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
 
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.accion-btn {
+  font-size: 0.9em;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.editar-btn {
+  background-color: #FF914D;
+  color: white;
+}
+
+.eliminar-btn {
+  background-color: #DC3545;
+  color: white;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #FFF5E1, #FFE4C4);
+  padding: 25px;
+  border-radius: 12px;
+  width: 400px;
+  text-align: center;
+}

@@ -3,13 +3,13 @@
 
   <div class="productos-grid">
     <div class="producto-card" *ngFor="let producto of productos">
-      <img [src]="producto.imagen_url" alt="{{ producto.nombre }}" />
-      <h3>{{ producto.nombre }}</h3>
-      <p>{{ producto.descripcion }}</p>
-      <p><strong>MXN{{ producto.precio | number: '1.2-2' }}</strong></p>
-      <p>Disponible: {{ producto.cantidad }}</p>
+      <!-- <img [src]="producto.imagen_url" alt="{{ producto.nombre }}" /> -->
+      <h3>{{ producto.product_name }}</h3>
+      <!-- <p>{{ producto.descripcion }}</p> -->
+      <p><strong>MXN{{ producto.price | number: '1.2-2' }}</strong></p>
+      <p>Disponible: {{ producto.is_stock }}</p>
       <div class="acciones">
-        <button class="accion-btn editar-btn" (click)="editarProducto(producto.id)">Editar</button>
+        <button class="accion-btn editar-btn" (click)="editarProducto(producto)">Editar</button>
         <button class="accion-btn eliminar-btn" (click)="eliminarProducto(producto.id)">Eliminar</button>
       </div>
     </div>
@@ -22,28 +22,28 @@
 
       <div class="modal-field">
         <label for="nombre">Nombre del Producto</label>
-        <input type="text" id="nombre" placeholder="Nombre" [(ngModel)]="nuevoProducto.nombre" />
+        <input type="text" id="nombre" placeholder="Nombre" [(ngModel)]="nuevoProducto.product_name" />
       </div>
 
-      <div class="modal-field">
+      <!-- <div class="modal-field">
         <label for="descripcion">Descripción</label>
         <textarea id="descripcion" placeholder="Descripción" [(ngModel)]="nuevoProducto.descripcion"></textarea>
-      </div>
+      </div> -->
 
       <div class="modal-field">
         <label for="precio">Precio (MXN)</label>
-        <input type="number" id="precio" placeholder="Precio" [(ngModel)]="nuevoProducto.precio" />
+        <input type="number" id="precio" placeholder="Precio" [(ngModel)]="nuevoProducto.price" />
       </div>
 
       <div class="modal-field">
         <label for="cantidad">Cantidad Disponible</label>
-        <input type="number" id="cantidad" placeholder="Cantidad" [(ngModel)]="nuevoProducto.cantidad" />
+        <input type="checkbox" id="cantidad" placeholder="Cantidad" [(ngModel)]="nuevoProducto.is_stock" />
       </div>
 
-      <div class="modal-field">
+      <!-- <div class="modal-field">
         <label for="imagen">Imagen del Producto</label>
         <input type="file" id="imagen" (change)="cargarImagen($event)" />
-      </div>
+      </div> -->
 
       <div class="modal-actions">
         <button class="guardar-btn" (click)="esEdicion ? guardarCambios() : agregarProducto()">

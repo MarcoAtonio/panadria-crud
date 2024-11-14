@@ -1,131 +1,123 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
-
-export interface Usuario {
-  id: number;
-  nombre: string;
-  correo: string;
-  contrasena: string;
-  rol: string;
- 
-}
-
-
+import { AuthService } from '../../services/auth.service';
+import { Usuario } from '../../dashboard/models/usuario.models';  // Importación del modelo unificado
 
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
   styleUrls: ['./usuarios.component.css']
 })
-export class UsuariosComponent {
-
-  usuarios: Usuario[] = [
-    {
-      id: 1,
-      nombre: 'Carlos',
-      correo: 'carlos@gmail.com',
-      contrasena: 'carl123!',
-      rol: 'Admin',
-      
-    },
-
-    {
-      id: 2,
-      nombre: 'Elias',
-      correo: 'Elias@gmail.com',
-      contrasena: 'elia123!',
-      rol: 'Gerente',
-      
-    },
-  
-  ]
+export class UsuariosComponent implements OnInit {
+  usuarios: Usuario[] = [];
+  mostrarModal = false;
+  esEdicion = false;
+  usuarioSeleccionado: Usuario | null = null;
 
   nuevoUsuario: Usuario = {
-    id: 0,
+    usuario_id: 0,
     nombre: '',
-    correo: '',
-    contrasena: '',
-    rol: '',
+    email: '',
+    password:'',
+    rol_id: 0
   };
-  constructor(private router: Router) {}
 
-  agregarUsuario() {
-    if (!this.nuevoUsuario.nombre || !this.nuevoUsuario.correo || !this.nuevoUsuario.contrasena || !this.nuevoUsuario.rol) {
-      Swal.fire({
-        title: 'Error',
-        text: 'Por favor, rellena todos los campos antes de continuar.',
-        icon: 'error',
-        timer: 1000,  
-        showConfirmButton: false  
-      });
-      return;
-    }
-  
-    this.nuevoUsuario.id = this.usuarios.length + 1;
-    this.usuarios.push({ ...this.nuevoUsuario });
-    Swal.fire({
-      title: 'Agregado',
-      text: `El Usuario "${this.nuevoUsuario.nombre}" se agregó correctamente.`,
-      icon: 'success',
-      timer: 2000,  
-      showConfirmButton: false  
-    });
-    this.cerrarModal();
+  constructor(private authService: AuthService) {}
+
+  ngOnInit() {
+    this.cargarUsuarios();
   }
 
+  // Cargar los usuarios desde la API
+  cargarUsuarios() {
+    this.authService.getUsuarios().subscribe({
+      next: (usuarios) => {
+        console.log("Usuarios cargados:", usuarios);
+        this.usuarios = usuarios;
+      },
+      error: () => {
+        Swal.fire('Error', 'No se pudo cargar la lista de usuarios.', 'error');
+      }
+    });
+  }
 
-  mostrarModalUsuario: boolean = false;
-  mostrarModal() {
-    this.mostrarModalUsuario = true;
+  abrirModal(esEdicion: boolean = false, usuario?: Usuario) {
+    this.esEdicion = esEdicion;
+    this.mostrarModal = true;
+
+    if (esEdicion && usuario) {
+      this.usuarioSeleccionado = usuario;
+      this.nuevoUsuario = { ...usuario };
+    } else {
+      this.nuevoUsuario = { usuario_id: 0, nombre: '', email: '',password: '', rol_id: 0};
+    }
   }
 
   cerrarModal() {
-    this.mostrarModalUsuario = false;
+    this.mostrarModal = false;
+    this.usuarioSeleccionado = null;
+  }
+
+  editarUsuario(usuario: Usuario) {
+    this.abrirModal(true, usuario);
+  }
+  
+  agregarUsuario() {
+    this.authService.createUsuario(this.nuevoUsuario).subscribe({
+      next: (usuario) => {
+        this.usuarios.push(usuario);
+        Swal.fire('Agregado', `El usuario "${this.nuevoUsuario.nombre}" se agregó correctamente.`, 'success');
+        this.cerrarModal();
+        this.cargarUsuarios();
+      },
+      error: () => {
+        Swal.fire('Error', 'No se pudo agregar el usuario.', 'error');
+      }
+    });
+  }
+
+  guardarCambios() {
+    if (this.usuarioSeleccionado) {
+      this.authService.updateUsuario(this.nuevoUsuario).subscribe({
+        next: (usuarioActualizado) => {
+          const index = this.usuarios.findIndex(u => u.usuario_id === usuarioActualizado.usuario_id);
+          if (index !== -1) {
+            this.usuarios[index] = usuarioActualizado;
+          }
+          Swal.fire('Actualizado', `El usuario "${this.nuevoUsuario.nombre}" se actualizó correctamente.`, 'success');
+          this.cerrarModal();
+          this.cargarUsuarios();
+        },
+        error: () => {
+          Swal.fire('Error', 'No se pudo actualizar el usuario.', 'error');
+        }
+      });
+    }
   }
 
   eliminarUsuario(id: number) {
-    const usuarioIndex = this.usuarios.findIndex(usuario => usuario.id === id);
-    if (usuarioIndex !== -1) {
-      this.usuarios.splice(usuarioIndex, 1);
-      Swal.fire({
-        title: 'Eliminado',
-        text: 'El usuario ha sido eliminado correctamente.',
-        icon: 'success',
-        timer: 2000,
-        showConfirmButton: false
-      });
-    } else {
-      Swal.fire({
-        title: 'Error',
-        text: 'No se pudo encontrar el usuario.',
-        icon: 'error',
-        timer: 2000,
-        showConfirmButton: false
-      });
-    }
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Eliminarás el usuario.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.authService.deleteUsuario(id).subscribe({
+          next: () => {
+            this.usuarios = this.usuarios.filter(u => u.usuario_id !== id);
+            Swal.fire('Eliminado', 'El usuario ha sido eliminado correctamente.', 'success');
+            this.cargarUsuarios();
+          },
+          error: () => {
+            Swal.fire('Error', 'No se pudo eliminar el usuario.', 'error');
+          }
+        });
+      }
+    });
   }
-
-  cargarUsuarioParaEditar(usuario: Usuario) {
-    console.log('Usuario seleccionado para editar:', usuario); // Log de depuración
-    this.nuevoUsuario = { ...usuario }; // Clona el usuario para edición
-    this.mostrarModalUsuario = true; // Muestra el modal de edición
-  }
-
-  editarUsuario(usuarioEditado: Usuario) {
-    const index = this.usuarios.findIndex(usuario => usuario.id === usuarioEditado.id);
-    if (index !== -1) {
-      this.usuarios[index] = { ...usuarioEditado }; // Actualiza el usuario en la lista
-      Swal.fire({
-        title: 'Actualizado',
-        text: `El usuario "${usuarioEditado.nombre}" ha sido actualizado correctamente.`,
-        icon: 'success',
-        timer: 2000,
-        showConfirmButton: false
-      });
-    }
-    this.cerrarModal(); // Cierra el modal después de editar
-  }
-  
- 
 }
